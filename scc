@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC CGL Complete Guide 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --navy: #0B1E3D;
+    --saffron: #FF6B00;
+    --gold: #F5A623;
+    --white: #FFFFFF;
+    --off-white: #F7F8FA;
+    --slate: #4A5568;
+    --light-blue: #E8F0FE;
+    --green: #1A7F5A;
+    --red: #C0392B;
+    --border: #DDE3EC;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--off-white);
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1A3A6E 100%);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,107,0,0.04) 40px,
+      rgba(255,107,0,0.04) 80px
+    );
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--saffron);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin: 0 auto 28px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat .num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+  .hero-stat .lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.5px;
+  }
+
+  /* NAV TABS */
+  .tab-nav {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    padding: 14px 20px;
+    border: none;
+    background: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--slate);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn.active {
+    color: var(--saffron);
+    border-bottom-color: var(--saffron);
+    font-weight: 600;
+  }
+  .tab-btn:hover:not(.active) { color: var(--navy); background: var(--off-white); }
+
+  /* SECTIONS */
+  .section { display: none; padding: 24px 16px; max-width: 860px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--saffron);
+  }
+
+  /* CARDS */
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .card-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title .icon {
+    width: 28px; height: 28px;
+    background: var(--light-blue);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* INFO GRID */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:480px) { .info-grid { grid-template-columns: 1fr; } }
+
+  .info-item {
+    background: var(--light-blue);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .info-item .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--slate);
+    margin-bottom: 4px;
+  }
+  .info-item .value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* TIER BADGES */
+  .tier-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .tier-1 { background: #FFF0E6; color: var(--saffron); }
+  .tier-2 { background: #E6F4FF; color: #0066CC; }
+
+  /* EXAM TABLE */
+  .exam-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .exam-table th {
+    background: var(--navy);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .exam-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .exam-table tr:nth-child(even) td { background: var(--off-white); }
+  .exam-table tr:last-child td { border-bottom: none; }
+
+  /* SYLLABUS */
+  .subject-block {
+    border-left: 4px solid var(--saffron);
+    padding-left: 14px;
+    margin-bottom: 16px;
+  }
+  .subject-block h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .topic-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .topic-list li {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--slate);
+  }
+
+  /* STUDY PLAN */
+  .month-card {
+    border-left: 4px solid var(--gold);
+    background: white;
+    border-radius: 0 10px 10px 0;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-left-width: 4px;
+    border-left-color: var(--gold);
+  }
+  .month-card h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--saffron);
+    margin-bottom: 6px;
+  }
+
+  /* POSTS TABLE */
+  .salary-highlight {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--green);
+    background: #E6FFF4;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* TIPS */
+  .tip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:500px) { .tip-grid { grid-template-columns: 1fr; } }
+  .tip-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .tip-card .tip-num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .tip-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .tip-card p { font-size: 12px; color: var(--slate); }
+
+  /* PYQ */
+  .pyq-block {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 14px;
+  }
+  .pyq-meta {
+    font-size: 11px;
+    color: var(--slate);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 8px;
+  }
+  .pyq-q { font-weight: 600; font-size: 14px; margin-bottom: 12px; }
+  .pyq-opts { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .pyq-opts li {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .pyq-opts li:hover { background: var(--light-blue); }
+  .pyq-opts li.correct { background: #E6FFF4; border-color: var(--green); color: var(--green); font-weight: 600; }
+  .pyq-answer {
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 600;
+    margin-top: 10px;
+    display: none;
+  }
+
+  /* WARNING BOX */
+  .warning-box {
+    background: #FFF8E6;
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #7A5800;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar-wrap { margin-bottom: 12px; }
+  .progress-label { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 4px; display: flex; justify-content: space-between; }
+  .progress-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--saffron), var(--gold)); border-radius: 4px; }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: var(--slate);
+    border-top: 1px solid var(--border);
+    margin-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Complete Guide 2026–27</div>
+  <h1>SSC <span>CGL</span> Exam 2026</h1>
+  <p>Combined Graduate Level — Your definitive guide to eligibility, syllabus, posts, preparation strategy, and previous year questions.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">12K+</span><span class="lbl">Vacancies</span></div>
+    <div class="hero-stat"><span class="num">30+</span><span class="lbl">Post Types</span></div>
+    <div class="hero-stat"><span class="num">2</span><span class="lbl">Exam Tiers</span></div>
+    <div class="hero-stat"><span class="num">₹1.8L</span><span class="lbl">Max CTC</span></div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('eligibility')">✅ Eligibility</button>
+  <button class="tab-btn" onclick="showTab('exam')">📋 Exam Pattern</button>
+  <button class="tab-btn" onclick="showTab('syllabus')">📚 Syllabus</button>
+  <button class="tab-btn" onclick="showTab('posts')">🏛️ Posts & Salary</button>
+  <button class="tab-btn" onclick="showTab('prep')">🎯 Study Plan</button>
+  <button class="tab-btn" onclick="showTab('pyq')">📝 PYQs</button>
+</nav>
+
+<!-- ELIGIBILITY -->
+<section class="section active" id="eligibility">
+  <div class="section-title">Eligibility & Application</div>
+
+  <div class="card">
+    <div class="card-title"><div class="icon">🎓</div> Educational Qualification</div>
+    <p style="font-size:14px; color:var(--slate); margin-bottom:12px;">A <strong>Bachelor's Degree</strong> in any discipline from a recognised University or equivalent is required. Final year students <strong>cannot</strong> apply — the degree must be complete at the time of application.</p>
+    <div class="warning-box">⚠️ Exception: For Statistical Investigator Grade II, a Bachelor's with Statistics as a subject is mandatory. For JSO posts, a degree with Statistics/Maths is required.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="icon">🎂</div> Age Limits (Post-wise)</div>
+    <div style="overflow-x:auto;">
+      <table class="exam-table">
+        <thead><tr><th>Post Group</th><th>Min Age</th><th>Max Age</th></tr></thead>
+        <tbody>
+          <tr><td>Assistant Audit Officer / AAO</td><td>20</td><td>30</td></tr>
+          <tr><td>Statistical Investigator Gr. II</td><td>20</td><td>30</td></tr>
+          <tr><td>Inspector (IT/Central Excise/Examiner)</td><td>18</td><td>30</td></tr>
+          <tr><td>Sub-Inspector (CBI / NIA / Posts)</td><td>20</td><td>30</td></tr>
+          <tr><td>Assistant Section Officer (CSS/MEA)</td><td>20</td><td>30</td></tr>
+          <tr><td>Most Other Posts</td><td>18</td><td>27–32</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--slate);margin-top:10px;">Age is tentatively calculated as on <strong>1st August 2026</strong> (Refer to the official notification for exact cutoff dates).</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="icon">🏷️</div> Age Relaxation</div>
+    <div class="info-grid">
+      <div class="info-item"><div class="label">OBC</div><div class="value">+3 years</div></div>
+      <div class="info-item"><div class="label">SC / ST</div><div class="value">+5 years</div></div>
+      <div class="info-item"><div class="label">PwBD (UR)</div><div class="value">+10 years</div></div>
+      <div class="info-item"><div class="label">Ex-Servicemen (UR)</div><div class="value">+3 years after service</div></div>
+      <div class="info-item"><div class="label">PwBD (OBC)</div><div class="value">+13 years</div></div>
+      <div class="info-item"><div class="label">PwBD (SC/ST)</div><div class="value">+15 years</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="icon">📝</div> Application Process</div>
+    <ol style="font-size:13px; color:var(--slate); padding-left:18px; line-height:2;">
+      <li>Register on the official SSC portal: <strong>ssc.gov.in</strong></li>
+      <li>Fill Part I of the application form (personal details)</li>
+      <li>Fill Part II (educational details, post preferences)</li>
+      <li>Upload photo & signature (JPEG, specified size)</li>
+      <li>Pay application fee online</li>
+      <li>Download and save final application form</li>
+    </ol>
+    <div class="info-grid" style="margin-top:12px;">
+      <div class="info-item"><div class="label">Application Fee (UR/OBC/EWS Male)</div><div class="value">₹100</div></div>
+      <div class="info-item"><div class="label">Fee Exemption</div><div class="value">Women / SC / ST / PwBD / Ex-SM</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAM PATTERN -->
+<section class="section" id="exam">
+  <div class="section-title">Revised Exam Pattern</div>
+  
+  <div class="warning-box">💡 SSC has abolished Tier III (Descriptive) and Tier IV. The exam is now conducted in only 2 Tiers.</div>
+
+  <div class="card">
+    <div class="card-title"><span class="tier-badge tier-1">Tier I</span> &nbsp; Qualifying + Screening</div>
+    <div style="overflow-x:auto;">
+      <table class="exam-table">
+        <thead><tr><th>Subject</th><th>Questions</th><th>Marks</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>General Intelligence & Reasoning</td><td>25</td><td>50</td><td rowspan="4" style="vertical-align:middle; font-weight:700; color:var(--saffron);">60 min<br><small style="font-weight:400;color:var(--slate)">(80 min PwBD)</small></td></tr>
+          <tr><td>General Awareness</td><td>25</td><td>50</td></tr>
+          <tr><td>Quantitative Aptitude</td><td>25</td><td>50</td></tr>
+          <tr><td>English Comprehension</td><td>25</td><td>50</td></tr>
+          <tr><td><strong>TOTAL</strong></td><td><strong>100</strong></td><td><strong>200</strong></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--red); margin-top:8px;">⚠️ Negative marking: <strong>0.50 marks</strong> deducted per wrong answer.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="tier-badge tier-2">Tier II</span> &nbsp; Main Exam (Merit Deciding)</div>
+    <div style="overflow-x:auto;">
+      <table class="exam-table">
+        <thead><tr><th>Session</th><th>Section</th><th>Questions</th><th>Marks</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr>
+            <td rowspan="3"><strong>Session I</strong><br>(2 Hrs 15 Min)</td>
+            <td><strong>Section I:</strong> Maths (30) + Reasoning (30)</td><td>60</td><td>180</td><td>1 hour</td>
+          </tr>
+          <tr>
+            <td><strong>Section II:</strong> English (45) + Gen. Awareness (25)</td><td>70</td><td>210</td><td>1 hour</td>
+          </tr>
+          <tr>
+            <td><strong>Section III (Module I):</strong> Computer Knowledge Test (Qualifying)</td><td>20</td><td>60</td><td>15 mins</td>
+          </tr>
+          <tr>
+            <td><strong>Session II</strong><br>(15 Min)</td>
+            <td><strong>Section III (Module II):</strong> Data Entry Speed Test (DEST)</td><td>Task</td><td>Qualifying</td><td>15 mins</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--red); margin-top:8px;">⚠️ Negative marking: <strong>1.00 mark</strong> deducted per wrong answer in Session I (Sections I & II).</p>
+  </div>
+</section>
+
+<!-- SYLLABUS -->
+<section class="section" id="syllabus">
+  <div class="section-title">Detailed Syllabus</div>
+
+  <div class="card">
+    <div class="card-title"><div class="icon">🧠</div> General Intelligence & Reasoning</div>
+    <div class="subject-block">
+      <h4>Non-Verbal</h4>
+      <ul class="topic-list">
+        <li>Series</li><li>Analogy</li><li>Classification</li><li>Matrix</li><li>Paper Folding</li><li>Mirror Image</li><li>Embedded Figures</li><li>Figure Completion</li>
+      </ul>
+    </div>
+    <div class="subject-block">
+      <h4>Verbal</h4>
+      <ul class="topic-list">
+        <li>Coding-Decoding</li><li>Blood Relations</li><li>Direction & Distance</li><li>Order & Ranking</li><li>Seating Arrangement</li><li>Syllogism</li><li>Statement & Conclusion</li><li>Dice & Cubes</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="icon">🌍</div> General Awareness</div>
+    <div class="subject-block">
+      <h4>Topics</h4>
+      <ul class="topic-list">
+        <li>Current Affairs</li><li>Indian History</li><li>Geography</li><li>Indian Polity & Constitution</li><li>Economics</li><li>Science (Physics/Chem/Bio)</li><li>Static GK</li><li>Books & Authors</li><li>Awards & Honours</li><li>Sports</li><li>Important Dates</li>
+      </ul>
+    </div>
+    <div class="progress-bar-wrap" style="margin-top:10px;">
+      <div class="progress-label"><span>Current Affairs Weight</span><span>~40%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-label"><span>Static GK Weight</span><span>~35%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-label"><span>Science Weight</span><span>~25%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="icon">🔢</div> Quantitative Aptitude</div>
+    <div class="subject-block">
+      <h4>Arithmetic</h4>
+      <ul class="topic-list">
+        <li>Number System</li><li>LCM & HCF</li><li>Ratio & Proportion</li><li>Percentage</li><li>Profit & Loss</li><li>Simple & Compound Interest</li><li>Time, Speed & Distance</li><li>Time & Work</li><li>Pipes & Cisterns</li>
+      </ul>
+    </div>
+    <div class="subject-block">
+      <h4>Advanced Maths</h4>
+      <ul class="topic-list">
+        <li>Algebra</li><li>Geometry</li><li>Trigonometry</li><li>Mensuration</li><li>Statistics & Data Interpretation</li><li>Coordinate Geometry</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><div class="icon">🔤</div> English Language & Comprehension</div>
+    <div class="subject-block">
+      <h4>Topics</h4>
+      <ul class="topic-list">
+        <li>Reading Comprehension</li><li>Cloze Test</li><li>Error Spotting</li><li>Fill in the Blanks</li><li>Synonyms & Antonyms</li><li>One Word Substitution</li><li>Idioms & Phrases</li><li>Sentence Correction</li><li>Para Jumbles</li><li>Active/Passive Voice</li><li>Direct/Indirect Speech</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- POSTS & SALARY -->
+<section class="section" id="posts">
+  <div class="section-title">Posts, Pay Scale & Job Profiles</div>
+
+  <div class="warning-box">💡 Pay levels are as per the 7th Pay Commission. CTC includes DA, HRA, and other allowances.</div>
+
+  <div style="overflow-x:auto;">
+    <table class="exam-table">
+      <thead>
+        <tr>
+          <th>Post Name</th>
+          <th>Ministry / Department</th>
+          <th>Pay Level</th>
+          <th>Gross Salary (approx.)</th>
+          <th>Job Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Assistant Audit Officer</strong></td>
+          <td>CAG of India</td>
+          <td>Level 8</td>
+          <td><span class="salary-highlight">₹47,600 – ₹1,51,100</span></td>
+          <td>Audit & Accounts</td>
+        </tr>
+        <tr>
+          <td><strong>Assistant Accounts Officer</strong></td>
+          <td>CAG of India</td>
+          <td>Level 8</td>
+          <td><span class="salary-highlight">₹47,600 – ₹1,51,100</span></td>
+          <td>Accounts</td>
+        </tr>
+        <tr>
+          <td><strong>Assistant Section Officer (CSS)</strong></td>
+          <td>Central Secretariat</td>
+          <td>Level 7</td>
+          <td><span class="salary-highlight">₹44,900 – ₹1,42,400</span></td>
+          <td>Desk / Admin</td>
+        </tr>
+        <tr>
+          <td><strong>Inspector (Income Tax)</strong></td>
+          <td>CBDT</td>
+          <td>Level 7</td>
+          <td><span class="salary-highlight">₹44,900 – ₹1,42,400</span></td>
+          <td>Field / Enforcement</td>
+        </tr>
+        <tr>
+          <td><strong>Inspector (Central Excise)</strong></td>
+          <td>CBIC</td>
+          <td>Level 7</td>
+          <td><span class="salary-highlight">₹44,900 – ₹1,42,400</span></td>
+          <td>Field / Enforcement</td>
+        </tr>
+        <tr>
+          <td><strong>Sub-Inspector (CBI)</strong></td>
+          <td>CBI</td>
+          <td>Level 7</td>
+          <td><span class="salary-highlight">₹44,900 – ₹1,42,400</span></td>
+          <td>Investigation</td>
+        </tr>
+        <tr>
+          <td><strong>Inspector of Posts</strong></td>
+          <td>Dept. of Posts</td>
+          <td>Level 7</td>
+          <td><span class="salary-highlight">₹44,900 – ₹1,42,400</span></td>
+          <td>Postal Admin</td>
+        </tr>
+        <tr>
+          <td><strong>Divisional Accountant</strong></td>
+          <td>State Govts via CAG</td>
+          <td>Level 7</td>
+          <td><span class="salary-highlight">₹44,900 – ₹1,42,400</span></td>
+          <td>Accounts</td>
+        </tr>
+        <tr>
+          <td><strong>Statistical Investigator Gr. II</strong></td>
+          <td>M/o Statistics</td>
+          <td>Level 7</td>
+          <td><span class="salary-highlight">₹44,900 – ₹1,42,400</span></td>
+          <td>Data / Research</td>
+        </tr>
+        <tr>
+          <td><strong>Tax Assistant (CBDT)</strong></td>
+          <td>CBDT</td>
+          <td>Level 4</td>
+          <td><span class="salary-highlight">₹25,500 – ₹81,100</span></td>
+          <td>Clerical</td>
+        </tr>
+        <tr>
+          <td><strong>Tax Assistant (CBIC)</strong></td>
+          <td>CBIC</td>
+          <td>Level 4</td>
+          <td><span class="salary-highlight">₹25,500 – ₹81,100</span></td>
+          <td>Clerical</td>
+        </tr>
+        <tr>
+          <td><strong>Upper Division Clerk (UDC)</strong></td>
+          <td>Various Ministries</td>
+          <td>Level 4</td>
+          <td><span class="salary-highlight">₹25,500 – ₹81,100</span></td>
+          <td>Clerical</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title"><div class="icon">🏆</div> Most Preferred Posts (Rank Order)</div>
+    <ol style="font-size:13px; color:var(--slate); padding-left:18px; line-height:2.2;">
+      <li><strong>Assistant Audit Officer (AAO)</strong> — Highest pay, Group B Gazetted, fast promotions</li>
+      <li><strong>Inspector of Income Tax</strong> — Field work, good perks, CBDT promotions</li>
+      <li><strong>Sub-Inspector CBI</strong> — Prestige, investigation work</li>
+      <li><strong>Assistant Section Officer (CSS)</strong> — Delhi posting, min. travel, career growth</li>
+      <li><strong>Inspector Central Excise / GST</strong> — Good perks, all-India posting</li>
+    </ol>
+  </div>
+</section>
+
+<!-- STUDY PLAN -->
+<section class="section" id="prep">
+  <div class="section-title">Preparation Strategy & Study Plan</div>
+
+  <div class="card">
+    <div class="card-title"><div class="icon">📅</div> 6-Month Study Plan</div>
+    <div class="month-card">
+      <h4>Month 1–2 — Foundation</h4>
+      <p style="font-size:13px; color:var(--slate);">Build basics in all four subjects. Start with NCERT Mathematics (Class 6–10), basic Grammar (Wren & Martin), NCERT History/Polity/Geography, and easy reasoning puzzles. Target: complete the entire syllabus once at a surface level.</p>
+    </div>
+    <div class="month-card">
+      <h4>Month 3–4 — Depth & Practice</h4>
+      <p style="font-size:13px; color:var(--slate);">Go deep on high-weightage topics. Solve chapter-wise questions from standard books (Rakesh Yadav for Maths, Kiran Publication for GK, R.S. Aggarwal for Reasoning). Read newspapers daily for current affairs. Target: 100+ questions solved per subject per week.</p>
+    </div>
+    <div class="month-card">
+      <h4>Month 5 — Mock Tests</h4>
+      <p style="font-size:13px; color:var(--slate);">Take full-length mock tests under timed conditions — minimum 2 per week. Analyse every wrong answer. Focus on speed and accuracy. Identify weak areas and revisit them immediately after each test.</p>
+    </div>
+    <div class="month-card">
+      <h4>Month 6 — Revision & PYQs</h4>
+      <p style="font-size:13px; color:var(--slate);">Solve 10 years of PYQs. Maintain a formula sheet for Maths and a vocabulary notebook for English. Revise GK notes every 3 days. Target a score of 150+ in mock tests before the exam.</p>
+    </div>
+  </div>
+
+  <div class="tip-grid">
+    <div class="tip-card">
+      <div class="tip-num">01</div>
+      <h4>Tier I is the Gateway</h4>
+      <p>Most candidates fall at Tier I. Prioritise all 4 sections equally — no section should be below 60% accuracy.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">02</div>
+      <h4>Time Management</h4>
+      <p>Spend max 14 min/section in Tier I. In mock tests, practice moving on from difficult questions quickly.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">03</div>
+      <h4>GK — Daily Habit</h4>
+      <p>Read monthly GK digests. Cover science, awards, sports, and government schemes — SSC loves these.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">04</div>
+      <h4>English — Vocabulary</h4>
+      <p>Learn 10 new words daily. One-word substitutions and idioms are high-yield in Tier I and Tier II.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">05</div>
+      <h4>Maths — Formula Sheet</h4>
+      <p>Maintain a hand-written formula sheet. Geometry and trigonometry formulas are direct scoring opportunities.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">06</div>
+      <h4>Don't Ignore Computers & Typing</h4>
+      <p>Many top scorers fail because they ignore the Tier II Computer Knowledge or DEST typing test. Practice typing 15 mins daily.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title"><div class="icon">📖</div> Recommended Books</div>
+    <div style="overflow-x:auto;">
+      <table class="exam-table">
+        <thead><tr><th>Subject</th><th>Book</th><th>Author / Publisher</th></tr></thead>
+        <tbody>
+          <tr><td>Quantitative Aptitude</td><td>Advance Maths for SSC</td><td>Rakesh Yadav</td></tr>
+          <tr><td>Quantitative Aptitude</td><td>Quantitative Aptitude</td><td>R.S. Aggarwal</td></tr>
+          <tr><td>Reasoning</td><td>A Modern Approach to Verbal & Non-Verbal Reasoning</td><td>R.S. Aggarwal</td></tr>
+          <tr><td>English</td><td>Objective General English</td><td>S.P. Bakshi (Arihant)</td></tr>
+          <tr><td>English Grammar</td><td>Wren & Martin</td><td>High School Grammar</td></tr>
+          <tr><td>General Awareness</td><td>Lucent's General Knowledge</td><td>Lucent Publications</td></tr>
+          <tr><td>Previous Year Papers</td><td>Kiran SSC CGL PYQ (10,000+)</td><td>Kiran Publications</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PYQs -->
+<section class="section" id="pyq">
+  <div class="section-title">Previous Year Questions</div>
+  <p style="font-size:13px; color:var(--slate); margin-bottom:16px;">Click on an option to check your answer.</p>
+
+  <div class="pyq-block">
+    <div class="pyq-meta">TIER I · 2025 · QUANTITATIVE APTITUDE</div>
+    <div class="pyq-q">If the simple interest on ₹4,000 for 3 years is ₹600, what is the rate of interest per annum?</div>
+    <ul class="pyq-opts">
+      <li onclick="check(this, false)">A) 4%</li>
+      <li onclick="check(this, true)">B) 5%</li>
+      <li onclick="check(this, false)">C) 6%</li>
+      <li onclick="check(this, false)">D) 3.5%</li>
+    </ul>
+    <div class="pyq-answer">✅ Answer: B — SI = (P×R×T)/100 → 600 = (4000×R×3)/100 → R = 5%</div>
+  </div>
+
+  <div class="pyq-block">
+    <div class="pyq-meta">TIER I · 2025 · GENERAL AWARENESS</div>
+    <div class="pyq-q">Which Article of the Indian Constitution deals with the Right to Equality?</div>
+    <ul class="pyq-opts">
+      <li onclick="check(this, false)">A) Article 12–18</li>
+      <li onclick="check(this, true)">B) Article 14–18</li>
+      <li onclick="check(this, false)">C) Article 19–22</li>
+      <li onclick="check(this, false)">D) Article 20–24</li>
+    </ul>
+    <div class="pyq-answer">✅ Answer: B — Articles 14 to 18 cover the Right to Equality (equality before law, no discrimination, abolition of untouchability, etc.)</div>
+  </div>
+
+  <div class="pyq-block">
+    <div class="pyq-meta">TIER I · 2024 · ENGLISH</div>
+    <div class="pyq-q">Choose the word most SIMILAR in meaning to: <em>AMELIORATE</em></div>
+    <ul class="pyq-opts">
+      <li onclick="check(this, false)">A) Worsen</li>
+      <li onclick="check(this, false)">B) Ignore</li>
+      <li onclick="check(this, true)">C) Improve</li>
+      <li onclick="check(this, false)">D) Preserve</li>
+    </ul>
+    <div class="pyq-answer">✅ Answer: C — "Ameliorate" means to make something bad or unsatisfactory better.</div>
+  </div>
+
+  <div class="pyq-block">
+    <div class="pyq-meta">TIER I · 2024 · REASONING</div>
+    <div class="pyq-q">In a code language, PENCIL is written as QFODLM. How is ERASER coded?</div>
+    <ul class="pyq-opts">
+      <li onclick="check(this, true)">A) FSBTFS</li>
+      <li onclick="check(this, false)">B) FSBSFT</li>
+      <li onclick="check(this, false)">C) GTBUGT</li>
+      <li onclick="check(this, false)">D) ESBTFS</li>
+    </ul>
+    <div class="pyq-answer">✅ Answer: A — Each letter is shifted +1: E→F, R→S, A→B, S→T, E→F, R→S = FSBTFS</div>
+  </div>
+
+  <div class="pyq-block">
+    <div class="pyq-meta">TIER I · 2025 · QUANTITATIVE APTITUDE</div>
+    <div class="pyq-q">A train 240 m long passes a pole in 24 seconds. How long will it take to pass a platform 120 m long?</div>
+    <ul class="pyq-opts">
+      <li onclick="check(this, false)">A) 30 sec</li>
+      <li onclick="check(this, false)">B) 32 sec</li>
+      <li onclick="check(this, true)">C) 36 sec</li>
+      <li onclick="check(this, false)">D) 40 sec</li>
+    </ul>
+    <div class="pyq-answer">✅ Answer: C — Speed = 240/24 = 10 m/s. Distance = 240+120 = 360 m. Time = 360/10 = 36 sec.</div>
+  </div>
+
+  <div class="pyq-block">
+    <div class="pyq-meta">TIER I · 2024 · GENERAL AWARENESS</div>
+    <div class="pyq-q">The Headquarters of the International Monetary Fund (IMF) is located in:</div>
+    <ul class="pyq-opts">
+      <li onclick="check(this, false)">A) New York</li>
+      <li onclick="check(this, false)">B) Geneva</li>
+      <li onclick="check(this, true)">C) Washington D.C.</li>
+      <li onclick="check(this, false)">D) Vienna</li>
+    </ul>
+    <div class="pyq-answer">✅ Answer: C — The IMF was established in 1944 and is headquartered in Washington D.C., USA.</div>
+  </div>
+</section>
+
+<footer>
+  SSC CGL Complete Guide 2026 · Data based on official SSC notifications and exam patterns. Always verify with <strong>ssc.gov.in</strong> for official updates.
+</footer>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.tab-nav').offsetTop - 10, behavior: 'smooth' });
+}
+
+function check(el, correct) {
+  const opts = el.parentElement.querySelectorAll('li');
+  opts.forEach(o => { o.style.pointerEvents = 'none'; });
+  if (correct) {
+    el.classList.add('correct');
+  } else {
+    el.style.background = '#FFF0F0';
+    el.style.borderColor = '#C0392B';
+    el.style.color = '#C0392B';
+    // Highlight correct
+    opts.forEach(o => {
+      if (o.getAttribute('onclick').includes('true')) {
+        o.classList.add('correct');
+      }
+    });
+  }
+  const ans = el.closest('.pyq-block').querySelector('.pyq-answer');
+  ans.style.display = 'block';
+}
+</script>
+</body>
+</html>
